@@ -10,8 +10,11 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueRouter from 'vue-router'
 import { routes } from './routes';
 
-Vue.use(VueRouter);
+import VueResource from 'vue-resource'
+
 Vue.use(BootstrapVue)
+Vue.use(VueRouter);
+Vue.use(VueResource);
 
 const router = new VueRouter({
   mode: 'history',

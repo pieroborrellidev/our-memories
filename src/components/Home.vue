@@ -1,7 +1,6 @@
 <template>
   <div class="slider-area">
     <b-carousel
-      v-model="slide"
       :interval="4000"
       controls
       indicators
@@ -21,7 +20,15 @@
 
 <script>
     export default {
-        
+        created() {
+            console.log(this.$http);
+            this.$http.get('http://localhost:3000/memories').then(response => {
+                console.log("inside");
+                return response.json();
+            }).then(memories => {
+                console.log(memories);
+            })
+        }
     };
 </script>
 

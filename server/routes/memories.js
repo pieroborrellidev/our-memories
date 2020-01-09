@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const Memory = require('../schemas/memory');
 
-router.get('/', (req, res) => {
-    res.send("travels");
+router.get('/', (req, res) => { 
+    return Memory.find().then(memories => {
+       return res.send(memories);
+    });
 });
 
 module.exports = router;

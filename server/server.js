@@ -1,8 +1,12 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const app = express();
-const memories = require('./routes/memories');
+const cors = require('cors');
 
+const memories = require('./routes/memories');
+const Memory = require('./schemas/memory');
+
+app.use(cors())
 app.use(express.json());
 app.use('/memories', memories);
 
