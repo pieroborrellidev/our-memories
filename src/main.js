@@ -16,6 +16,8 @@ Vue.use(BootstrapVue)
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
+Vue.http.options.root = "http://localhost:3000/memories";
+
 const router = new VueRouter({
   mode: 'history',
   routes

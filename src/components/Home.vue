@@ -10,8 +10,10 @@
       style="text-shadow: 1px 1px 2px #333;"
     >
       <b-carousel-slide
-        caption="First slide"
-        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+        v-for="memory in memories"
+        :key="memory._id"
+        :caption="memory.title"
+        :text="memory.title"
         img-src="https://picsum.photos/1024/480/?image=22"
       ></b-carousel-slide>
     </b-carousel>
@@ -20,14 +22,15 @@
 
 <script>
     export default {
+        data() {
+            return {
+                memories: []
+            }
+        },
         created() {
-            console.log(this.$http);
-            this.$http.get('http://localhost:3000/memories').then(response => {
-                console.log("inside");
-                return response.json();
-            }).then(memories => {
-                console.log(memories);
-            })
+            this.$http.get('').then(response => { return response.json() }).then(memories => {
+                this.memories = memories;
+            });
         }
     };
 </script>
